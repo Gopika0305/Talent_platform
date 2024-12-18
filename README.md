@@ -3,13 +3,13 @@
 ## I. Project Setup and Structure
 
 1. **Initialize Project:**
-   - Create a project directory: 
+   - Clone the  project directory: 
      ```
-     mkdir talent-platform
+     git clone https://github.com/Clusters-Config/Talent_platform 
      ```
    - Navigate into it: 
      ```
-     cd talent-platform
+     cd Talent-platform
      ```
 
 2. **Backend (Node.js/Express.js):**
