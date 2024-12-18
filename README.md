@@ -13,13 +13,9 @@
      ```
 
 2. **Backend (Node.js/Express.js):**
-   - Initialize Node.js: 
-     ```
-     npm init -y
-     ```
    - Install dependencies:
      ```
-     npm install express mongoose cors body-parser dotenv jsonwebtoken bcryptjs
+     npm install
      ```
      - **express:** Web framework.
      - **mongoose:** MongoDB object modeling.
