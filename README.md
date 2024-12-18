@@ -1,7 +1,5 @@
 # Talent_platform
 
-# Talent Matching and Training Platform Development Using MERN Stack
-
 ## I. Project Setup and Structure
 
 1. **Initialize Project:**
