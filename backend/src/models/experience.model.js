@@ -14,6 +14,6 @@ const ExpSchema = new mongo({
     description:{ 
         type: String
     }
-})
+},{timestamps:true})
 
 module.exports = mongoose.model('Experience',ExpSchema)
