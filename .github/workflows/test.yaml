@@ -1,0 +1,22 @@
+name: Tests
+
+
+on:
+    pull_request:
+        branches: [ main ]
+
+        
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node_version: [18,20]
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use node.js
+              uses: actions/setup-node@v3
+              with:
+                node-version: "${{ matrix.node_version }}"
+            - run: npm install
+            - run: npm run
