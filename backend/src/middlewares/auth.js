@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 const authMiddleware = (req,res,next) => {
     //Get the token as headers.authorization
     const token = req.headers.authorization;
-    const words = token.split(" ");
+    const words = token.split(' ');
     const jwtToken = words[1]; 
     //Verify the token
     const codeWord = jwt.verify(jwtToken,JWT_SECRET);
@@ -14,7 +14,7 @@ const authMiddleware = (req,res,next) => {
     }
     else{ 
         res.json({
-             msg: "You are not authenticated"
+             msg: 'You are not authenticated'
         })
     }
 }
