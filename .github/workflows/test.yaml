@@ -1,11 +1,9 @@
-name: Tests
-
+name: Tests for the backend
 
 on:
     pull_request:
         branches: [ main ]
-
-        
+       
 jobs:
     test:
         runs-on: ubuntu-latest
@@ -18,5 +16,7 @@ jobs:
               uses: actions/setup-node@v3
               with:
                 node-version: "${{ matrix.node_version }}"
+            - name: Change the directory
+              run: cd ./backend
             - run: npm install
             - run: npm run
