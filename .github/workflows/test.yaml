@@ -23,3 +23,5 @@ jobs:
                  echo "$(pwd) is in $(ls)"
             - run: npm ci
             - run: npm test
+              env:
+                CI: true
