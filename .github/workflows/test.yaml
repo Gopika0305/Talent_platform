@@ -20,6 +20,6 @@ jobs:
               with:
                 node-version: "${{ matrix.node_version }}"
             - run: |
-                 echo $(pwd)
-            - run: npm install
-            - run: npm run
+                 echo  $(pwd)
+            - run: npm run ci
+            - run: npm test
