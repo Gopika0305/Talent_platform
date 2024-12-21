@@ -20,6 +20,6 @@ jobs:
               with:
                 node-version: "${{ matrix.node_version }}"
             - run: |
-                 echo  $(pwd)
-            - run: npm run ci
+                 echo "$(pwd) is in $(ls)"
+            - run: npm ci
             - run: npm test
