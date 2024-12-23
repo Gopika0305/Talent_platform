@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
-const Button = () => { 
-    const [value,setValue] = useState('Click Me');
+const Button = ({props,onClick}) => { 
+    const [value,setValue] = useState(false);
 
     return (
         <>
-        <button className='bg-green-400 m-4 p-2 rounded 'onClick={()=>setValue("Clicked")}>{value}</button>
+        <button className='bg-green-400 m-4 p-2 rounded 'onClick={()=>setValue(true)}>{props}</button>
         </>
     )
 }

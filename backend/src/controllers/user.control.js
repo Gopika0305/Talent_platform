@@ -13,6 +13,7 @@ const SignIn = (req,res) => {
         if(!user){ 
             res.status(404).json({message:"User not found"})
         }
+
         const token = jwt.sign({username},process.env.JWT_SECRET);
         console.log(token)
 
