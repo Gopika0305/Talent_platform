@@ -11,21 +11,18 @@ const RegisterSchema = new mongo({
     },
      username:{ 
        type: String,
-       max:6,
        required:true,
        unqiue:true
     },
     password:{ 
         type: String,
-        min:5,
         max:8,
         required:true,
     },
-    dob:{ 
-        type: Date,
-        required:true,
-    }
+    
 },{timestamps:true})
 
 
-module.exports = mongoose.model('Register',RegisterSchema); 
+const Register = mongoose.model('Register',RegisterSchema)
+
+export default Register

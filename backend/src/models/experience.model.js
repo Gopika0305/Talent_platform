@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const mongo = mongoose.schema;
+const mongo = mongoose.Schema;
 
 const ExpSchema = new mongo({ 
     title:{ 
@@ -16,4 +16,7 @@ const ExpSchema = new mongo({
     }
 },{timestamps:true})
 
-module.exports = mongoose.model('Experience',ExpSchema)
+
+const Experience = mongoose.model('Experience',ExpSchema)
+
+export default Experience

@@ -1,14 +1,16 @@
 //signin,register,home,account
 import { Router } from 'express'
+import  { SignUp ,SignIn} from '../controllers/user.control.js'
 
 const router = Router();
 
-router.get('/signin')
-router.post('/signup')
+router.post('/signin',SignIn)
+router.post('/signup',SignUp)
 
 router.get('/account')
 router.post('/account/details');
-router.update('/account/details/:username')
+//router.update('/account/details/:username')
 
 router.get('/')
 
+export default router

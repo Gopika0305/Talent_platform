@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const mongo = mongoose.schema;
+const mongo = mongoose.Schema;
 
 const SkillSchema = new mongo({ 
      title:{ 
@@ -13,5 +13,6 @@ const SkillSchema = new mongo({
      }
 },{timestamps:true})
 
+const Skill = mongoose.model('Skill',SkillSchema)
 
-module.exports = mongoose.model('Skill',SkillSchema)
+export default Skill
