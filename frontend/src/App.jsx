@@ -15,7 +15,11 @@ const App = () => {
     <>
   <Router>
     <div>
+      {/* Navbar Component */}
     <Navbar/>
+
+    {/* Routing between pages */}
+    
     <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/login" element={<Login />} />
