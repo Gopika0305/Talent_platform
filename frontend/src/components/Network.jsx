@@ -1,9 +1,25 @@
 import React from 'react'
+import NetworkCard from './NetworkCard'
 
 const Network = () => {
   return (
     <>
-    <h1 className="text-center mt-36 text-6xl">Hello this is Network page content</h1>
+    <div className="container mt-44 ml-4 flex flex-wrap space-y-6 justify-around ">
+    <NetworkCard /> 
+    <NetworkCard /> 
+    <NetworkCard /> 
+    <NetworkCard /> 
+
+    <NetworkCard /> 
+    <NetworkCard /> 
+    <NetworkCard /> 
+    <NetworkCard /> 
+
+    <NetworkCard /> 
+    <NetworkCard /> 
+    <NetworkCard /> 
+    <NetworkCard /> 
+    </div>
     </>
   )
 }
