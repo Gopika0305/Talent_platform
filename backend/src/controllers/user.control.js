@@ -1,5 +1,5 @@
 import { Register,User } from '../exports.js'
-
+import jwt from 'jsonwebtoken'
 const Home = () => { 
     //logic
 }
@@ -13,6 +13,9 @@ const SignIn = (req,res) => {
         if(!user){ 
             res.status(404).json({message:"User not found"})
         }
+        const token = jwt.sign({username},process.env.JWT_SECRET);
+        console.log(token)
+
         res.status(200).json({message:"User Signed In"})
     }
     catch(error){ 
@@ -22,21 +25,20 @@ const SignIn = (req,res) => {
 
 const SignUp = async (req, res) => {
     try {
-        const { firstname, lastname, username, password, dob } = req.body;
-        console.log(req.body);
-
+        const { firstname, lastname, username, password } = req.body;
+        
         const newUser = new Register({
             firstname,
             lastname,
             username,
-            password,
-            dob: new Date(dob)
+            password, 
         });
         
-        console.log(newUser);
+        const token = jwt.sign({ username }, process.env.JWT_SECRET);
+        console.log(token)
         await newUser.save();
 
-        res.status(201).json({ message: "User Registered" });
+        res.status(201).json({ message: "User Registered", token });
     } catch (error) {
         res.status(500).json({ error: "An error occurred while registering the user" });
     }

@@ -3,10 +3,15 @@ import jwt from 'jsonwebtoken';
 const authMiddleware = (req,res,next) => {
     //Get the token as headers.authorization
     const token = req.headers.authorization;
+    
+    if (!token) {
+        return res.status(401).json({ msg: 'No token provided' });
+    }
     const words = token.split(' ');
     const jwtToken = words[1]; 
+    console.log(jwtToken)
     //Verify the token
-    const codeWord = jwt.verify(jwtToken,JWT_SECRET);
+    const codeWord = jwt.verify(jwtToken,process.env.JWT_SECRET);
 
     if(codeWord.username){ 
         req.username = codeWord.username;
@@ -19,4 +24,4 @@ const authMiddleware = (req,res,next) => {
     }
 }
 
-export default authMiddleware;
+export{  authMiddleware };
