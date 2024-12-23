@@ -1,5 +1,5 @@
 import React from 'react'
-import NetworkCard from './NetworkCard'
+import NetworkCard from '../components/NetworkCard'
 
 const Network = () => {
   return (
