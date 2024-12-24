@@ -1,6 +1,6 @@
-import { useState,React } from 'react';
+import { useState,React,memo} from 'react';
 
-const Search = React.memo(() =>{ 
+const Search = memo(() =>{ 
         const [filter,setFilter] =useState('')
 
     function filterData(e){ 
