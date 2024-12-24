@@ -1,6 +1,6 @@
 import { Register,User } from '../exports.js'
 import jwt from 'jsonwebtoken'
-
+import z from 'zod';
 
 const Home = () => { 
     //logic
@@ -11,8 +11,11 @@ const SignIn = (req,res) => {
         const {username,password} = req.body;
 
         const user = Register.findOne({username:username,password:password});
+        const parseUser = z.safeParse(user);
+        
         console.log(user)
-        if(!user){ 
+
+        if(!parseUser.sucess){ 
             res.status(404).json({message:"User not found"})
         }
 
