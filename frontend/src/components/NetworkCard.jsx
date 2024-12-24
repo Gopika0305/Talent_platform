@@ -3,7 +3,7 @@ import Userimage from "../assets/user.jpg"
 
 const NetworkCard = ({name,domain}) => {
    const [visible, setVisible] = useState(false);
-       const dropdownRef = useRef(null);
+    const dropdownRef = useRef(null);
        
        // Function to handle the click event
        const handleClick = () => { setVisible(!visible); };
@@ -11,7 +11,10 @@ const NetworkCard = ({name,domain}) => {
        // Function to handle the click outside the dropdown
        const handleClickOutside = (event) => { 
            if (dropdownRef.current && !dropdownRef.current.contains(event.target))
-                { setVisible(false); } }; 
+                { 
+                    setVisible(false); 
+                } 
+            }; 
    
        // useEffect hook to add an event listener when the component mounts
        useEffect(() => { 

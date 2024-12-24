@@ -1,6 +1,6 @@
 import React ,{useState , useEffect}from "react";
 import { useRef } from "react";
-import "tailwindcss/tailwind.css";
+
 
 const Dropdown = () => {
     const [visible, setVisible] = useState(false);
