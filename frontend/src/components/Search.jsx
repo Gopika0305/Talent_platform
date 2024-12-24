@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState,React } from 'react';
 
-const Search = () =>{ 
+const Search = React.memo(() =>{ 
         const [filter,setFilter] =useState('')
 
     function filterData(e){ 
@@ -22,6 +22,6 @@ const Search = () =>{
             </button>
         </div>
     )
-}
+})
 
 export default Search

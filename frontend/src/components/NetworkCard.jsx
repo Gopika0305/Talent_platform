@@ -1,4 +1,4 @@
-import React ,{useState,useEffect,useRef} from 'react'
+import React ,{useState,useEffect,useRef, useCallback} from 'react'
 import Userimage from "../assets/user.jpg"
 
 const NetworkCard = ({name,domain}) => {
@@ -9,12 +9,12 @@ const NetworkCard = ({name,domain}) => {
        const handleClick = () => { setVisible(!visible); };
    
        // Function to handle the click outside the dropdown
-       const handleClickOutside = (event) => { 
+       const handleClickOutside = useCallback((event) => { 
            if (dropdownRef.current && !dropdownRef.current.contains(event.target))
                 { 
                     setVisible(false); 
                 } 
-            }; 
+            },[visible]); 
    
        // useEffect hook to add an event listener when the component mounts
        useEffect(() => { 
