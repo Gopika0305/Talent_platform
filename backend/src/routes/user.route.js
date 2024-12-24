@@ -6,7 +6,7 @@ const router = Router();
 
 router.post('/signin',SignIn)
 router.post('/signup',SignUp)
-
+router.get('/network')
 router.get('/account')
 router.post('/account/details');
 //router.update('/account/details/:username')

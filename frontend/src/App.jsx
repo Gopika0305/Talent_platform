@@ -6,7 +6,7 @@ import Account from './pages/Account'
 import Findtalent from './pages/Findtalent'
 import Jobs from './pages/Jobs'
 import Network from './pages/Network'
-import Notifications from './components/Notifications'
+import Notifications from './pages/Notifications'
 import Navbar from './components/Navbar'
 
 
@@ -28,6 +28,7 @@ const App = () => {
     <Route path="/jobs" element={<Jobs/>} />
     <Route path="/network" element={<Network/>} />
     <Route path="/Notifications" element={<Notifications/>} />
+
     </Routes>
     </div>
   </Router>

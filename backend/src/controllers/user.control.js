@@ -1,5 +1,7 @@
 import { Register,User } from '../exports.js'
 import jwt from 'jsonwebtoken'
+
+
 const Home = () => { 
     //logic
 }
@@ -44,6 +46,10 @@ const SignUp = async (req, res) => {
         res.status(500).json({ error: "An error occurred while registering the user" });
     }
 };
+
+const Network = (req,res) => { 
+    
+}
 
 const Account = (req,res) => { 
      const  user  = User.find({

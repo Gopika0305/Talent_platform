@@ -1,5 +1,7 @@
 
 import React from 'react'
+import Search from '../components/Search'
+
 import NetworkCard from '../components/NetworkCard'
 
 // Commented below is Example using of network card without repeating the code
@@ -21,6 +23,7 @@ const Network = () => {
   return (
     <>
     <div className="container mt-44 ml-4 flex flex-wrap space-y-6 justify-around ">
+      <Search/>
     <NetworkCard  name="Bonnie Jenson" domain="Visual designer"/> 
     <NetworkCard  name="John Doe" domain="Frontend developer"/>
     <NetworkCard  name="Jane Doe" domain="Backend developer"/>
