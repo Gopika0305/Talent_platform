@@ -1,7 +1,6 @@
 
 import React from 'react'
 import Search from '../components/Search'
-
 import NetworkCard from '../components/NetworkCard'
 
 // Commented below is Example using of network card without repeating the code
