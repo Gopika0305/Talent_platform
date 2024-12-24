@@ -1,7 +1,24 @@
-import React from 'react'
+import React ,{useState,useEffect,useRef} from 'react'
 import Userimage from "../assets/user.jpg"
 
 const NetworkCard = ({name,domain}) => {
+   const [visible, setVisible] = useState(false);
+       const dropdownRef = useRef(null);
+       
+       // Function to handle the click event
+       const handleClick = () => { setVisible(!visible); };
+   
+       // Function to handle the click outside the dropdown
+       const handleClickOutside = (event) => { 
+           if (dropdownRef.current && !dropdownRef.current.contains(event.target))
+                { setVisible(false); } }; 
+   
+       // useEffect hook to add an event listener when the component mounts
+       useEffect(() => { 
+           document.addEventListener('mousedown', handleClickOutside);
+           return () => { document.removeEventListener('mousedown', handleClickOutside); }; 
+       }, []);
+       
 return (
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div className="flex justify-end px-4 pt-4">
@@ -10,6 +27,8 @@ return (
                 data-dropdown-toggle="dropdown"
                 className="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
                 type="button"
+                ref={dropdownRef}
+                onClick={handleClick}
             >
                 <span className="sr-only">Open dropdown</span>
                 <svg
@@ -25,7 +44,7 @@ return (
             {/* <!-- Dropdown menu --> */}
             <div
                 id="dropdown"
-                className="z-10 hidden text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                className={` ${visible?'block':'hidden'} z-10 text-base absolute list-none bg-white divide-y divide-gray-100 rounded-lg shadow w-32 dark:bg-gray-700`}
             >
                 <ul className="py-2" aria-labelledby="dropdownButton">
                     <li>
