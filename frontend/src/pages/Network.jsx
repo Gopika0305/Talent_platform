@@ -1,6 +1,6 @@
 
 import React from 'react'
-import Search from '../components/Search'
+import Layout from '../wrappers/Layout'
 import NetworkCard from '../components/NetworkCard'
 
 // Commented below is Example using of network card without repeating the code
@@ -30,9 +30,9 @@ const Network = () => {
 
   return (
     <>
+    <Layout>
       <div className="container m-4 ml-4 flex flex-wrap justify-around">
         <div className="w-full mb-6">
-          <Search />
         </div>
         {networkData.map((person, index) => (
           <NetworkCard
@@ -43,6 +43,7 @@ const Network = () => {
           />
         ))}
       </div>
+      </Layout>
     </>
   );
 }
