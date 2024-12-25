@@ -5,7 +5,7 @@ import Layout from '../wrappers/Layout.jsx';
 
 const Main = () => {
   return (
-    <Layout>
+    <>
       {/* Example Posts */}
       <Post content="This is the first post." />
       <Post content="Another post with more content. This is a longer example to demonstrate how the scrolling works within the main area." />
@@ -23,8 +23,7 @@ const Main = () => {
       <Post content="Another post with more content. This is a longer example to demonstrate how the scrolling works within the main area." />
       <Post content="Yet another post!" />
       <Post content="And one more for good measure." />
-    
-    </Layout>
+      </>
   );
 };
 

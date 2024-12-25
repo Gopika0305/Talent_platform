@@ -2,6 +2,7 @@ import React, { Suspense } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Main from './pages/Main'
+import Layout from './wrappers/Layout';
 const Login = React.lazy(() => import('./pages/Login'));
 const Account = React.lazy(() => import('./pages/Account'));
 const Findtalent = React.lazy(() => import('./pages/Findtalent'));
@@ -18,6 +19,8 @@ const App = () => {
           {/* Navbar Component */}
           <Navbar />
 
+          <Layout>
+
           {/* Routing between pages */}
           <Routes>
             <Route path="/" element={<Main />} />
@@ -28,6 +31,8 @@ const App = () => {
             <Route path="/network" element={<Suspense ><Network /></Suspense>} />
             <Route path="/notifications" element={<Suspense ><Notifications /></Suspense>} />
           </Routes>
+
+          </Layout>
         </div>
       </Router>
     </>

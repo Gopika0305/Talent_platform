@@ -30,7 +30,7 @@ const Network = () => {
 
   return (
     <>
-    <Layout>
+    
       <div className="container m-4 ml-4 flex flex-wrap justify-around">
         <div className="w-full mb-6">
         </div>
@@ -43,7 +43,7 @@ const Network = () => {
           />
         ))}
       </div>
-      </Layout>
+    
     </>
   );
 }
