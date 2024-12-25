@@ -1,27 +1,22 @@
 import { Register,Network } from '../exports.js'
 import jwt from 'jsonwebtoken'
-import z from 'zod';
+import { Loginlist } from '../types.js'
 
 const Home = () => { 
     //logic
 }
 
-const SignIn = (req,res) => { 
+const SignIn = async (req, res) => { 
     try{ 
         const {username,password} = req.body;
-
-        const user = Register.findOne({username:username,password:password});
-        //const parseUser = z.safeParse(user);
+        console.log({username,password})
+        const user = await Register.findOne({ username: username });
+        const parseUser = Loginlist.safeParse(user);
         
-        console.log(user)
-
-       if(username == '' || password == ''){ 
-            res.json({message:"Please fill in the required fields"})
+         console.log(parseUser)
+        if(!parseUser.success){ 
+          res.json({message:"User not found"})
         }
-
-       // if(!parseUser.sucess){ 
-          //  res.status(404).json({message:"User not found"})
-        //}
 
         const token = jwt.sign({username},process.env.JWT_SECRET);
         console.log(token)

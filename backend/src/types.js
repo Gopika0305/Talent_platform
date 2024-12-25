@@ -1,12 +1,12 @@
 import z from 'zod';
 
 
-const Network = z.object({ 
-    name: z.string(),
-    description: z.string(),
+const Loginlist = z.object({ 
+    username: z.string(),
+    password: z.string(),
 })
 
-const Register = z.object({
+const Registerlist = z.object({
     firstname: z.string(),
     lastname: z.string(),
     username: z.string(),
@@ -14,4 +14,4 @@ const Register = z.object({
 })
 
 
-export { Network, Register }
+export { Loginlist , Registerlist }

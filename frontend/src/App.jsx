@@ -2,7 +2,6 @@ import React, { Suspense } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Main from './pages/Main'
-import Loading from './components/Loading';
 const Login = React.lazy(() => import('./pages/Login'));
 const Account = React.lazy(() => import('./pages/Account'));
 const Findtalent = React.lazy(() => import('./pages/Findtalent'));
