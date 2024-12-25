@@ -1,11 +1,12 @@
 import {  useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 const FormLogin = () => {
-    const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+    const notify = () => toast("Login failed. Please check your username and password and try again.");
 
     async function loginUser(event) {
 		event.preventDefault();
@@ -27,8 +28,7 @@ const FormLogin = () => {
             }
         })
         .catch((error) => {
-            console.error("There was an error logging in!", error);
-            alert("Login failed. Please check your username and password and try again.");
+           notify();
         });
         
 	}
@@ -57,6 +57,7 @@ const FormLogin = () => {
                 >
                     Login
                 </button>
+                <ToastContainer />
             </div>
         </div>
     );
