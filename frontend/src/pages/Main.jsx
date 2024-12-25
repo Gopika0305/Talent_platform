@@ -1,31 +1,9 @@
 import React from 'react';
-
-const Layout = ({ children }) => {
-  return (
-    <div className="min-h-screen mt-16 bg-gray-100 flex justify-center ">
-      {/* Main Content Container */}
-      <div className="max-w-5xl w-full mx-auto py-10 px-4 sm:px-6 lg:px-8 flex ">
+import Post from '../components/Post';
+import Layout from '../wrappers/Layout.jsx';
 
 
-        {/* Main Content Area (Posts) */}
-        <main className="flex-grow bg-white rounded-lg shadow p-6 overflow-y-auto hide-scrollbar h-[calc(100vh-8rem)]">
-          {children} {/* This is where the actual posts will go */}
-        </main>
-
-        
-      </div>
-    </div>
-  );
-};
-
-const Post = ({ content }) => (
-  <div className="mb-4 p-4 border rounded shadow ">
-    <p>{content}</p>
-  </div>
-);
-
-
-const Apps = () => {
+const Main = () => {
   return (
     <Layout>
       {/* Example Posts */}
@@ -50,4 +28,4 @@ const Apps = () => {
   );
 };
 
-export default Apps;
+export default Main;

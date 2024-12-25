@@ -8,7 +8,7 @@ import Jobs from './pages/Jobs'
 import Network from './pages/Network'
 import Notifications from './pages/Notifications'
 import Navbar from './components/Navbar'
-import Layout from './pages/Layout'
+import Main from './pages/Main'
 
 
 const App = () => {
@@ -22,7 +22,7 @@ const App = () => {
     {/* Routing between pages */}
     
     <Routes>
-    <Route path="/" element={<Layout/>} />
+    <Route path="/" element={<Main/>} />
     <Route path="/login" element={<Login />} />
     <Route path="/account" element={<Account />} />
     <Route path="/findtalent" element={<Findtalent/>} />
