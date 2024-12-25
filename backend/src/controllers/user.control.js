@@ -1,4 +1,4 @@
-import { Register,User } from '../exports.js'
+import { Register,Network } from '../exports.js'
 import jwt from 'jsonwebtoken'
 import z from 'zod';
 
@@ -50,12 +50,9 @@ const SignUp = async (req, res) => {
     }
 };
 
-const Network = (req,res) => { 
-    
-}
 
 const Account = (req,res) => { 
-     const  user  = User.find({
+     const  user  = Network.find({
             username:req.body.username
      });
      console.log(user)
