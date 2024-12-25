@@ -11,18 +11,22 @@ const SignIn = (req,res) => {
         const {username,password} = req.body;
 
         const user = Register.findOne({username:username,password:password});
-        const parseUser = z.safeParse(user);
+        //const parseUser = z.safeParse(user);
         
         console.log(user)
 
-        if(!parseUser.sucess){ 
-            res.status(404).json({message:"User not found"})
+       if(username == '' || password == ''){ 
+            res.json({message:"Please fill in the required fields"})
         }
+
+       // if(!parseUser.sucess){ 
+          //  res.status(404).json({message:"User not found"})
+        //}
 
         const token = jwt.sign({username},process.env.JWT_SECRET);
         console.log(token)
-
         res.status(200).json({message:"User Signed In"})
+
     }
     catch(error){ 
         res.status(500).json({error:"An error occurred while signing in the user"})

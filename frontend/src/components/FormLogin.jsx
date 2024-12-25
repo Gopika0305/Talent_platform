@@ -8,28 +8,29 @@ const FormLogin = () => {
     const [password, setPassword] = useState("");
 
     async function loginUser(event) {
-		event.preventDefault()
-
-		const response =  fetch('http://localhost:3001/signin', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				username,
-				password,
-			}),
-		})
+		event.preventDefault();
+        axios.post("http://localhost:3001/login", {
+            username: username,
+            password: password,
+        }, {
+            headers: {
+            "Content-Type": "application/json",
+            }
+        })
+        .then((response) => {
+            console.log(response.data);
+            localStorage.setItem("token", response.data.token);
+            if (username === '' || password === '') {
+            alert("Please enter your username and password");
+            } else {
+            navigate("/");
+            }
+        })
+        .catch((error) => {
+            console.error("There was an error logging in!", error);
+            alert("Login failed. Please check your username and password and try again.");
+        });
         
-		const data = await response.json()
-        console.log(data)
-		if (data.user) {
-			localStorage.setItem('token', data.user)
-			alert('Login successful')
-			navigate('/')
-		} else {
-			alert('Please check your username and password')
-		}
 	}
 
     return (
@@ -52,7 +53,7 @@ const FormLogin = () => {
                 />
                 <button
                     onClick={loginUser}
-                    className="bg-red-500 text-white p-2 rounded w-full hover:bg-blue-600"
+                    className="bg-blue-500 text-white p-2 rounded w-full hover:bg-blue-600"
                 >
                     Login
                 </button>

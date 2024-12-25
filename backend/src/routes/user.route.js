@@ -4,7 +4,7 @@ import  { SignUp ,SignIn} from '../controllers/user.control.js'
 import { authMiddleware }  from '../middlewares/auth.js'
 const router = Router();
 
-router.post('/signin',SignIn)
+router.post('/login',SignIn)
 router.post('/signup',SignUp)
 router.get('/network')
 router.get('/account')
