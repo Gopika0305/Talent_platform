@@ -6,7 +6,7 @@ const FormLogin = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const notify = () => toast("Login failed. Please check your username and password and try again.");
+    const notify = () => toast("Login failed");
 
     async function loginUser(event) {
 		event.preventDefault();
