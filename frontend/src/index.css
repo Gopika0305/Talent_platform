@@ -13,3 +13,18 @@
     scrollbar-width: none;  /* Firefox */
   }
   
+
+
+.aleo-semibold {
+  font-family: "Aleo", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.aleo-regular {
+  font-family: "Aleo", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
