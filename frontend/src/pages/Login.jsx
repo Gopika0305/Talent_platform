@@ -1,9 +1,9 @@
 import FormLogin from "../components/FormLogin";
-import Register from "../components/Register";
+import FormRegister from "../components/FormRegister";
 
 const Login = () => {
     return (
-        <FormLogin children={<Register/>}/>
+        <FormLogin children={<FormRegister/>}/>
     );
 };
 
