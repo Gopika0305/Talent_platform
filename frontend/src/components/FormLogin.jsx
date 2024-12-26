@@ -2,7 +2,10 @@ import {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-const FormLogin = () => {
+
+
+
+const FormLogin = ({children}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -57,6 +60,7 @@ const FormLogin = () => {
                 >
                     Login
                 </button>
+                 {children}
                 <ToastContainer />
             </div>
         </div>
