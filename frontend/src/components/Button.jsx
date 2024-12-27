@@ -1,11 +1,11 @@
-import { useState } from 'react'
 
-const Button = ({props,onClick}) => { 
-    const [value,setValue] = useState(false);
+
+const Button = ({title,onClick}) => { 
+   
 
     return (
         <>
-        <button className='bg-green-400 m-4 p-2 rounded 'onClick={()=>setValue(true)}>{props}</button>
+        <button className='bg-blue-400 m-4 p-2 px-4 rounded-full aleo-regular text-normal'onClick={onClick}>{title}</button>
         </>
     )
 }

@@ -2,6 +2,7 @@ import {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import Button from "./Button";
 
 
 
@@ -54,13 +55,15 @@ const FormLogin = ({children}) => {
                     placeholder="Password"
                     className="mb-4 p-2 border border-gray-300 rounded w-full"
                 />
-                <button
+                <div className="flex justify-center">
+                <Button
+                 title='Login'
                     onClick={loginUser}
-                    className="bg-blue-500 text-white p-2 rounded w-full hover:bg-blue-600"
-                >
-                    Login
-                </button>
+                    className="bg-blue-500 text-white p-4 px-4 rounded w-full hover:bg-blue-600"
+                />
+                 
                  {children}
+                 </div>
                 <ToastContainer />
             </div>
         </div>
