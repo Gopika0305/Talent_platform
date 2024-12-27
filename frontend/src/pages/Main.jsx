@@ -5,7 +5,7 @@ const Main = () => {
   return (
     <>
       {/* Example Posts */}
-      <Post tile="Hiring Designers" content="This is the first post." name="FunWorld" position="designer"/>
+      <Post title="Hiring Designers" content="This is the first post." name="FunWorld" position="designer"/>
       <Post content="Another post with more content. This is a longer example to demonstrate how the scrolling works within the main area." />
       <Post content="Yet another post!" />
       <Post content="And one more for good measure." />
