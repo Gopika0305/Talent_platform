@@ -5,9 +5,9 @@ const Main = () => {
   return (
     <>
       <Post title="Hiring Designers" content="This is the first post." name="FunWorld" position="designer"/>
-      <Post content="Yet another post!" />
-      <Post content="And one more for good measure." />
-      <Post content="This is the first post."/>
+      <Post title="Hiring Designers" content="Yet another post!" name="FunWorld" position="designer"/>
+      <Post title="Hiring Designers" content="And one more for good measure." name="FunWorld" position="designer"/>
+      <Post title="Hiring Designers" content="This is the first post." name="FunWorld" position="designer"/>
       </>
   );
 };
