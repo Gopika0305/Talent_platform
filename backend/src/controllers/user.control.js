@@ -20,7 +20,10 @@ const SignIn = async (req, res) => {
 
         const token = jwt.sign({username},process.env.JWT_SECRET);
         console.log(token)
-        res.status(200).json({message:"User Signed In"})
+        res.status(200).json({
+            message:"User Signed In",
+            token:token
+        })
 
     }
     catch(error){ 
@@ -43,7 +46,10 @@ const SignUp = async (req, res) => {
         console.log(token)
         await newUser.save();
 
-        res.status(201).json({ message: "User Registered", token });
+        res.status(201).json({ 
+            message: "User Registered", 
+            token:token 
+        });
     } catch (error) {
         res.status(500).json({ error: "An error occurred while registering the user" });
     }
