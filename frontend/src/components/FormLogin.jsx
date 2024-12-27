@@ -24,11 +24,12 @@ const FormLogin = ({children}) => {
         })
         .then((response) => {
             console.log(response.data);
-            localStorage.setItem("token", response.data.token);
             if (username === '' || password === '') {
-            alert("Please enter your username and password");
-            } else {
-            navigate("/");
+                alert("Please enter your username and password");
+            } 
+            if(response.data.granted){
+                localStorage.setItem("token", `Bearer ${response.data.token}`);
+                navigate("/");
             }
         })
         .catch((error) => {

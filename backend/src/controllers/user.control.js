@@ -14,15 +14,21 @@ const SignIn = async (req, res) => {
         const parseUser = Loginlist.safeParse(user);
         
          console.log(parseUser)
+
         if(!parseUser.success){ 
-          res.json({message:"User not found"})
+          res.json({
+            message:"User not found",
+            navigate:false
+        });
+        return;
         }
 
         const token = jwt.sign({username},process.env.JWT_SECRET);
         console.log(token)
         res.status(200).json({
             message:"User Signed In",
-            token:token
+            token:token,
+            granted:true
         })
 
     }
@@ -62,7 +68,10 @@ const Account = (req,res) => {
      });
      console.log(user)
         if(!user){ 
-            res.status(404).json({message:"User not found"})
+            res.status(404).json({
+                message:"User not found",
+
+            })
         }
         res.status(200).json({message:"User Account"})
 }
