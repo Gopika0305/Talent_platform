@@ -2,10 +2,14 @@ import mongoose from 'mongoose';
 
 const mongo = mongoose.Schema;
 
-const SkillSchema = new mongo({ 
+const JobSchema = new mongo({ 
      title:{ 
         type: String,
         required:true
+     },
+     description:{ 
+         type: String,
+         required:true
      },
      ratings:{ 
         type: Number,
@@ -13,6 +17,6 @@ const SkillSchema = new mongo({
      }
 },{timestamps:true})
 
-const Skill = mongoose.model('Skill',SkillSchema)
+const Skill = mongoose.model('Skill',JobSchema)
 
 export default Skill

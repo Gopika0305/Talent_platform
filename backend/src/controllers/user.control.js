@@ -1,6 +1,6 @@
-import { Register,Network } from '../exports.js'
+import { Register,Network, Skill } from '../exports.js'
 import jwt from 'jsonwebtoken'
-import { Loginlist } from '../types.js'
+import { Loginlist,Joblist } from '../types.js'
 
 const Home = () => { 
     //logic
@@ -25,6 +25,7 @@ const SignIn = async (req, res) => {
 
         const token = jwt.sign({username},process.env.JWT_SECRET);
         console.log(token)
+
         res.status(200).json({
             message:"User Signed In",
             token:token,
@@ -62,20 +63,51 @@ const SignUp = async (req, res) => {
 };
 
 
-const Account = (req,res) => { 
-     const  user  = Network.find({
-            username:req.body.username
-     });
-     console.log(user)
-        if(!user){ 
-            res.status(404).json({
-                message:"User not found",
+const JobsPost = async (req,res) => { 
+    try{
+    const {title,description} = req.body;
 
-            })
-        }
-        res.status(200).json({message:"User Account"})
+    const newJob =  new Skill({ 
+        title,
+        description
+    })
+    
+    const parseJob = Joblist.safeParse(newJob);
+    console.log(parseJob)
+    if(!parseJob.success){ 
+        res.json({ 
+            msg:'Job cannot be posted in the database'
+        })
+        return 
+    }
+
+    await newJob.save()
+    res.status(200).json({ 
+        msg:'Job posted in the db'
+    })
+}
+catch(err){ 
+    res.status(500).json({ 
+        msg:'Error in the save'
+    })
 }
 
+}
+
+const JobsGet = async (req,res) => { 
+    try{
+   const data = await Skill.find({})
+   console.log(data) 
+   res.status(200).json({ 
+     msg:data
+   })
+}
+catch(err) { 
+    res.status(500).json({ 
+        msg:"Error in the search"
+    })
+}
+}
 const AccDetails = (req,res) =>{ 
     //logic
 }
@@ -89,7 +121,6 @@ export{
     Home,
     SignIn,
     SignUp,
-    Account,
-    AccDetails,
-    AccUpdate
+    JobsPost,
+    JobsGet
 }

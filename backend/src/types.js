@@ -13,5 +13,9 @@ const Registerlist = z.object({
     password:z.string(),
 })
 
+const Joblist  = z.object({ 
+    title: z.string(),
+    description: z.string()
+})
 
-export { Loginlist , Registerlist }
+export { Loginlist , Registerlist , Joblist }
