@@ -1,9 +1,10 @@
 import React from 'react';
 
 const Jobskeleton= ({ content,position,title,organization}) => {
+
+
   return(
     <div>
-        
       <div role="status" className="p-4 m-4 xl:mb-4 xl:ml-8 xl:mr-8 xl:p-6  border border-gray-200 rounded shadow md:p-6 dark:border-gray-700">
 
           <div className="flex font-bold w-auto flex-col">

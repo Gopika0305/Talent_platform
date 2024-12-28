@@ -32,6 +32,7 @@ const Jobs = () => {
         <button onClick={handleJobClick} >
          
        {clicked ? <SideBar/>:<Jobskeleton key={index}  title={post.title} content={post.content} position={post.position} organization={post.organization}/> }
+  
        </button>
     )})}
     </div>
