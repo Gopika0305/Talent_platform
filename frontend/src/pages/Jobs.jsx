@@ -1,5 +1,6 @@
-import { useState,useRef,useEffect } from 'react'
+import { useState } from 'react'
 import Jobskeleton from '../components/Jobskeleton';
+import SideBar from '../components/Sidebar';
 
 
 const postdata = [
@@ -12,18 +13,16 @@ const postdata = [
 
 const Jobs = () => {
   const [clicked, setClicked] = useState(false)
-  const postref = useRef()
 
-const handleJobClick = () => {
-  setClicked(true);
-  
-}
+  const handleJobClick = (index) => {
+    setClicked((prevClicked) => ({
+      ...prevClicked,
+      [index]: !prevClicked[index],
+    }));
+  };
 
-  useEffect(() => {
-    if (clicked) {
-      postref.current.scrollIntoView({ behavior: "smooth" })
-    }
-  }, [clicked])
+
+
   return (
     <>
     <div>
@@ -31,7 +30,9 @@ const handleJobClick = () => {
     {postdata.map((post,index)=>{ 
       return(
         <button onClick={handleJobClick} >
-       <Jobskeleton key={index} ref={postref} title={post.title} content={post.content} position={post.position} organization={post.organization}/> </button>
+         
+       {clicked ? <SideBar/>:<Jobskeleton key={index}  title={post.title} content={post.content} position={post.position} organization={post.organization}/> }
+       </button>
     )})}
     </div>
        </>
@@ -39,3 +40,4 @@ const handleJobClick = () => {
 }
 
 export default Jobs
+
