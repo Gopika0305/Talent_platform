@@ -4,13 +4,13 @@ const Jobskeleton= ({ content,position,title,organization}) => {
   return(
     <div>
         
-      <div role="status" className="p-4 mb-4 ml-10 mr-5 border border-gray-200 rounded shadow md:p-6 dark:border-gray-700">
+      <div role="status" className="p-4 m-4 xl:mb-4 xl:ml-8 xl:mr-8 xl:p-6  border border-gray-200 rounded shadow md:p-6 dark:border-gray-700">
 
           <div className="flex font-bold w-auto flex-col">
-                <div className="h-2.5 aleo-semibold text-2xl p-2 w-72 mb-8">
+                <div className="h-auto aleo-semibold text-2xl p-2 w-60 text-start ">
                   {position}
                 </div>
-                <div className="h-auto aleo-regular mb-2.5 mx-4">
+                <div className="h-auto aleo-regular mb-2.5 mx-2 text-justify">
                   {content}
                 </div>
                 <div className="flex flex-row-reverse w-auto mx-4 mt-3">
