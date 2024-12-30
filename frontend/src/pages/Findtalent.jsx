@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 
 const candidates = [
@@ -35,39 +35,6 @@ const candidates = [
     summary: 'Recent graduate with a strong background in data science and a passion for uncovering insights from data. Proficient in Python, machine learning algorithms, and statistical analysis.',
     imageUrl: 'https://randomuser.me/api/portraits/men/3.jpg'
   },
-  {
-    id: 4,
-    name: 'Peter Jones',
-    headline: 'Data Scientist',
-    skills: ['Python', 'Machine Learning', 'Data Analysis', 'Statistics', 'Deep Learning'],
-    location: 'San Francisco, CA',
-    experience: 'Entry',
-    availability: 'Contract',
-    summary: 'Recent graduate with a strong background in data science and a passion for uncovering insights from data. Proficient in Python, machine learning algorithms, and statistical analysis.',
-    imageUrl: 'https://randomuser.me/api/portraits/men/4.jpg'
-  },
-  {
-    id: 5,
-    name: 'Peter Jones',
-    headline: 'Data Scientist',
-    skills: ['Python', 'Machine Learning', 'Data Analysis', 'Statistics', 'Deep Learning'],
-    location: 'San Francisco, CA',
-    experience: 'Entry',
-    availability: 'Contract',
-    summary: 'Recent graduate with a strong background in data science and a passion for uncovering insights from data. Proficient in Python, machine learning algorithms, and statistical analysis.',
-    imageUrl: 'https://randomuser.me/api/portraits/men/5.jpg'
-  },
-  {
-    id: 6,
-    name: 'Peter Jones',
-    headline: 'Data Scientist',
-    skills: ['Python', 'Machine Learning', 'Data Analysis', 'Statistics', 'Deep Learning'],
-    location: 'San Francisco, CA',
-    experience: 'Entry',
-    availability: 'Contract',
-    summary: 'Recent graduate with a strong background in data science and a passion for uncovering insights from data. Proficient in Python, machine learning algorithms, and statistical analysis.',
-    imageUrl: 'https://randomuser.me/api/portraits/men/6.jpg'
-  },
 ];
 
 const FindTalent = () => {
@@ -76,6 +43,14 @@ const FindTalent = () => {
   const [availabilityFilters, setAvailabilityFilters] = useState([]);
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [filteredCandidates, setFilteredCandidates] = useState(candidates);
+
+  useEffect(() => {
+    filterCandidates();
+  }, [searchTerm, experienceFilters, availabilityFilters, selectedFilters]);
+
+  useEffect(() => {
+    filterCandidates();
+  }, []);
 
   const handleFilterSelect = (filterType, filterValue) => {
     setSelectedFilters(prevFilters => {
@@ -141,112 +116,109 @@ const FindTalent = () => {
 
 
   return (
-   
-      <div className="container mx-auto py-8 px-4 lg:px-8 flex flex-col lg:flex-row">
-        <aside className="w-full lg:w-1/4 bg-white p-6 rounded-lg shadow-md mb-6 lg:mb-0 lg:mr-6">
-          <h2 className="text-lg font-semibold mb-4 text-gray-800">Filters</h2>
-          <div className="mb-4">
-            <h3 className="text-md font-medium mb-2 text-gray-700">Experience</h3>
-            <div>
-              {['Entry', 'Mid', 'Senior'].map(exp => (
-                <label key={exp} className="inline-flex items-center mr-4 mb-2">
-                  <input type="checkbox" value={exp} checked={experienceFilters.includes(exp)} onChange={() => handleExperienceChange(exp)} className="form-checkbox h-5 w-5 text-blue-600 rounded-full" />
-                  <span className="ml-2 text-gray-700">{exp} Level</span>
-                </label>
-              ))}
-            </div>
-          </div>
+    <div className="container mx-auto py-8 px-4 lg:px-8 flex flex-col lg:flex-row">
+      <aside className="w-full lg:w-1/4 bg-white p-6 rounded-lg shadow-md mb-6 lg:mb-0 lg:mr-6">
+        <h2 className="text-lg font-semibold mb-4 text-gray-800">Filters</h2>
+        <div className="mb-4">
+          <h3 className="text-md font-medium mb-2 text-gray-700">Experience</h3>
           <div>
-            <h3 className="text-md font-medium mb-2 text-gray-700">Availability</h3>
-            <div>
-              {['Full-time', 'Part-time', 'Contract'].map(avail => (
-                <label key={avail} className="inline-flex items-center mr-4 mb-2">
-                  <input type="checkbox" value={avail} checked={availabilityFilters.includes(avail)} onChange={() => handleAvailabilityChange(avail)} className="form-checkbox h-5 w-5 text-blue-600 rounded-full" />
-                  <span className="ml-2 text-gray-700">{avail}</span>
-                </label>
+            {['Entry', 'Mid', 'Senior'].map(exp => (
+              <label key={exp} className="inline-flex items-center mr-4 mb-2">
+                <input type="checkbox" value={exp} checked={experienceFilters.includes(exp)} onChange={() => handleExperienceChange(exp)} className="form-checkbox h-5 w-5 text-blue-600 rounded-full" />
+                <span className="ml-2 text-gray-700">{exp} Level</span>
+              </label>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h3 className="text-md font-medium mb-2 text-gray-700">Availability</h3>
+          <div>
+            {['Full-time', 'Part-time', 'Contract'].map(avail => (
+              <label key={avail} className="inline-flex items-center mr-4 mb-2">
+                <input type="checkbox" value={avail} checked={availabilityFilters.includes(avail)} onChange={() => handleAvailabilityChange(avail)} className="form-checkbox h-5 w-5 text-blue-600 rounded-full" />
+                <span className="ml-2 text-gray-700">{avail}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+      </aside>
+
+      <main className="w-full lg:w-3/4">
+        <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+          <div className="flex flex-col md:flex-row gap-4 items-start md:items-center mb-4">
+            <div className="relative w-full md:w-1/2">
+              <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search by name, title or skills..."
+                value={searchTerm}
+                onChange={handleSearch}
+                className="w-full pl-10 pr-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              {searchTerm && (
+                <button
+                  onClick={() => {
+                    setSearchTerm('');
+                    filterCandidates();
+                  }}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                >
+                  <FaTimes />
+                </button>
+              )}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {selectedFilters.map(filter => (
+                <div key={`${filter.type}-${filter.value}`} className="bg-blue-100 text-blue-800 rounded-full px-3 py-1 text-sm font-medium flex items-center">
+                  {filter.value}
+                  <button onClick={() => handleRemoveFilter(filter)} className="ml-1 text-gray-400 hover:text-gray-600 focus:outline-none">
+                    <FaTimes className="w-3 h-3" />
+                  </button>
+                </div>
               ))}
             </div>
           </div>
-        </aside>
+        </div>
 
-        <main className="w-full lg:w-3/4">
- 
-          <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-            <div className="flex flex-col md:flex-row gap-4 items-start md:items-center mb-4">
-              <div className="relative w-full md:w-1/2">
-                <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Search by name, title or skills..."
-                  value={searchTerm}
-                  onChange={handleSearch}
-                  className="w-full pl-10 pr-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                {searchTerm && (
-                  <button
-                    onClick={() => {
-                      setSearchTerm('');
-                      filterCandidates();
-                    }}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                  >
-                    <FaTimes />
-                  </button>
-                )}
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {selectedFilters.map(filter => (
-                  <div key={`${filter.type}-${filter.value}`} className="bg-blue-100 text-blue-800 rounded-full px-3 py-1 text-sm font-medium flex items-center">
-                    {filter.value}
-                    <button onClick={() => handleRemoveFilter(filter)} className="ml-1 text-gray-400 hover:text-gray-600 focus:outline-none">
-                      <FaTimes className="w-3 h-3" />
-                    </button>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredCandidates.map((candidate) => (
+            <div key={candidate.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 flex flex-col">
+              <div className="p-6 flex flex-col h-full">
+                <div className="flex items-center mb-4">
+                  <img src={candidate.imageUrl} alt={candidate.name} className="w-12 h-12 rounded-full mr-4 object-cover" />
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-800">{candidate.name}</h2>
+                    <h3 className="text-gray-600 text-sm">{candidate.headline}</h3>
                   </div>
-                ))}
+                </div>
+
+                <div className="mb-4 flex flex-wrap gap-2">
+                  {candidate.skills.map((skill) => (
+                    <span key={skill} className="inline-block bg-blue-100 text-blue-800 rounded-full px-3 py-1 text-sm font-medium mr-2 mb-1">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex-grow mb-4">
+                  <p className="text-gray-700 mb-1 text-sm">Experience: <span className="font-medium">{candidate.experience}</span></p>
+                  <p className="text-gray-700 mb-1 text-sm">Availability: <span className="font-medium">{candidate.availability}</span></p>
+                  <p className="text-gray-700 text-sm">{candidate.summary}</p>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 p-4 border-t border-gray-200 mt-auto">
+                <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-300">
+                  View Profile
+                </button>
               </div>
             </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredCandidates.map((candidate) => (
-              <div
-                key={candidate.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300"
-              >
-                <div className="p-6">
-                  <div className="flex items-center mb-4">
-                    <img src={candidate.imageUrl} alt={candidate.name} className="w-12 h-12 rounded-full mr-4 object-cover" />
-                    <div>
-                      <h2 className="text-xl font-semibold text-gray-800">{candidate.name}</h2>
-                      <h3 className="text-gray-600 text-sm">{candidate.headline}</h3>
-                    </div>
-                  </div>
-
-                  <div className="mb-4">
-                    {candidate.skills.map((skill) => (
-                      <span key={skill} className="inline-block bg-blue-100 text-blue-800 rounded-full px-3 py-1 text-sm font-medium mr-2 mb-1">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-
-                  <p className="text-gray-700 mb-2 text-sm">Experience: {candidate.experience}</p>
-                  <p className="text-gray-700 mb-4 text-sm">Availability: {candidate.availability}</p>
-                  <p className="text-gray-700 line-clamp-3 text-sm">{candidate.summary}</p>
-                </div>
-                <div className="bg-gray-50 p-4 border-t border-gray-200">
-                  <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-300">
-                    View Profile
-                  </button>
-                </div>
-              </div>
-            ))}
-            {filteredCandidates.length === 0 && (
-              <div className="text-center text-gray-500 col-span-full py-12">No candidates found.</div>
-            )}
-          </div>
-        </main>
-      </div>
-   
+          ))}
+          {filteredCandidates.length === 0 && (
+            <div className="text-center text-gray-500 col-span-full py-12">No candidates found.</div>
+          )}
+        </div>
+      </main>
+    </div>
   );
 };
 
