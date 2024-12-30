@@ -44,7 +44,7 @@ const candidates = [
     experience: 'Entry',
     availability: 'Contract',
     summary: 'Recent graduate with a strong background in data science and a passion for uncovering insights from data. Proficient in Python, machine learning algorithms, and statistical analysis.',
-    imageUrl: 'https://randomuser.me/api/portraits/men/3.jpg'
+    imageUrl: 'https://randomuser.me/api/portraits/men/4.jpg'
   },
   {
     id: 5,
@@ -55,7 +55,7 @@ const candidates = [
     experience: 'Entry',
     availability: 'Contract',
     summary: 'Recent graduate with a strong background in data science and a passion for uncovering insights from data. Proficient in Python, machine learning algorithms, and statistical analysis.',
-    imageUrl: 'https://randomuser.me/api/portraits/men/3.jpg'
+    imageUrl: 'https://randomuser.me/api/portraits/men/5.jpg'
   },
   {
     id: 6,
@@ -66,7 +66,7 @@ const candidates = [
     experience: 'Entry',
     availability: 'Contract',
     summary: 'Recent graduate with a strong background in data science and a passion for uncovering insights from data. Proficient in Python, machine learning algorithms, and statistical analysis.',
-    imageUrl: 'https://randomuser.me/api/portraits/men/3.jpg'
+    imageUrl: 'https://randomuser.me/api/portraits/men/6.jpg'
   },
 ];
 
