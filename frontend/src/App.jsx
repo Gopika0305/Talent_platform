@@ -19,20 +19,20 @@ const App = () => {
           {/* Navbar Component */}
           <Navbar />
 
-          <Layout>
+          
 
           {/* Routing between pages */}
           <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/login" element={<Suspense ><Login /></Suspense>} />
-            <Route path="/register" element={<Suspense><Register/></Suspense>}/>
+            <Route path="/" element={<Layout><Main /></Layout>} />
+            <Route path="/login" element={<Suspense ><Layout><Login /></Layout></Suspense>} />
+            <Route path="/register" element={<Suspense><Layout><Register/></Layout></Suspense>}/>
             <Route path="/findtalent" element={<Suspense ><Findtalent /></Suspense>} />
-            <Route path="/jobs" element={<Suspense ><Jobs /></Suspense>} />
-            <Route path="/network" element={<Suspense ><Network /></Suspense>} />
-            <Route path="/notifications" element={<Suspense ><Notifications /></Suspense>} />
+            <Route path="/jobs" element={<Suspense ><Layout><Jobs /></Layout></Suspense>} />
+            <Route path="/network" element={<Suspense ><Layout><Network /></Layout></Suspense>} />
+            <Route path="/notifications" element={<Suspense ><Layout><Notifications /></Layout></Suspense>} />
           </Routes>
 
-          </Layout>
+          
         </div>
       </Router>
     </>

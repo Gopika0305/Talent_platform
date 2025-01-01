@@ -12,8 +12,17 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
-  
 
+  ::-webkit-scrollbar {
+    background-color: whitesmoke;
+    width: 10px;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+    background-color: #888;
+    border-radius: 10px;
+  }
 
 .aleo-semibold {
   font-family: "Aleo", serif;
