@@ -124,7 +124,7 @@ const FindTalent = () => {
           <div>
             {['Entry', 'Mid', 'Senior'].map(exp => (
               <label key={exp} className="inline-flex items-center mr-4 mb-2">
-                <input type="checkbox" value={exp} checked={experienceFilters.includes(exp)} onChange={() => handleExperienceChange(exp)} className="form-checkbox h-5 w-5 text-blue-600 rounded-full" />
+                <input type="checkbox" value={exp} checked={experienceFilters.includes(exp)} onChange={() => handleExperienceChange(exp)} className="form-checkbox h-5 w-5 text-white-600 rounded-full" />
                 <span className="ml-2 text-gray-700">{exp} Level</span>
               </label>
             ))}
@@ -135,7 +135,7 @@ const FindTalent = () => {
           <div>
             {['Full-time', 'Part-time', 'Contract'].map(avail => (
               <label key={avail} className="inline-flex items-center mr-4 mb-2">
-                <input type="checkbox" value={avail} checked={availabilityFilters.includes(avail)} onChange={() => handleAvailabilityChange(avail)} className="form-checkbox h-5 w-5 text-blue-600 rounded-full" />
+                <input type="checkbox" value={avail} checked={availabilityFilters.includes(avail)} onChange={() => handleAvailabilityChange(avail)} className="form-checkbox h-5 w-5 text-white-600 rounded-full" />
                 <span className="ml-2 text-gray-700">{avail}</span>
               </label>
             ))}
@@ -153,7 +153,7 @@ const FindTalent = () => {
                 placeholder="Search by name, title or skills..."
                 value={searchTerm}
                 onChange={handleSearch}
-                className="w-full pl-10 pr-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                className="w-full pl-10 pr-4 py-2  rounded focus:outline-none focus:ring-2 " />
               {searchTerm && (
                 <button
                   onClick={() => {
