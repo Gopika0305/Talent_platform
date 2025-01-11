@@ -20,7 +20,7 @@ const App = () => {
           <Navbar />
 
           
-
+          <Layout>
           {/* Routing between pages */}
           <Routes>
             <Route path="/" element={<Main />} />
@@ -31,7 +31,7 @@ const App = () => {
             <Route path="/network" element={<Suspense ><Network /></Suspense>} />
             <Route path="/notifications" element={<Suspense ><Notifications /></Suspense>} />
           </Routes>
-
+          </Layout>
           
         </div>
       </Router>
