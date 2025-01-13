@@ -116,7 +116,7 @@ const FindTalent = () => {
 
 
   return (
-    <div className="container my-5 mx-auto py-5 px-4 lg:px-8 flex flex-col lg:flex-row">
+    <div className="container my-5 mx-auto px-4 lg:px-8 flex flex-col lg:flex-row">
       <aside className="w-max lg:w-1/6 bg-white p-6 rounded-lg shadow-md mb-6 lg:mb-0 lg:mr-6 fixed lg:h-[calc(100vh-5rem)] overflow-y-auto">
         <h2 className="text-lg font-semibold mb-4 text-gray-800">Filters</h2>
         <div className="mb-4">
@@ -144,7 +144,7 @@ const FindTalent = () => {
       </aside>
 
       <main className="w-full lg:w-fit ml-[25%]">
-        <div className="bg-white p-6 rounded-lg shadow-md mb-8 fixed w-[calc(75%-8.5rem)] z-10">
+        <div className="bg-white p-6 rounded-lg shadow-md mb-8 fixed w-[calc(75%-13rem)] z-10">
           <div className="flex flex-col md:flex-row gap-4 items-start md:items-center mb-4">
             <div className="relative w-full md:w-1/2">
               <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -179,7 +179,7 @@ const FindTalent = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-[15%] pt-calc(6rem+1.5rem)] pr-[4.9rem]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-[15%] pt-calc(6rem+1.5rem)] pr-20">
           {filteredCandidates.map((candidate) => (
             <div key={candidate.id} className="bg-white rounded-lg shadow-xl overflow-hidden hover:shadow-lg transition duration-300 flex flex-col">
               <div className="p-6 flex flex-col h-full">
