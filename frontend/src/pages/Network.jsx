@@ -25,7 +25,7 @@ const Network = () => {
             key={index}
             name={person.name}
             domain={person.domain}
-            className="w-full md:w-1/2 lg:w-1/4 p-4"/>
+            className="w-full m-2 md:w-1/2 lg:w-1/4 p-4"/>
         ))}
       </div>
     
