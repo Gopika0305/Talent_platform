@@ -18,7 +18,7 @@ const Network = () => {
   return (
     <>
     
-      <div className="container mx-16 px-16 flex gap-5 flex-wrap justify-evenly">
+      <div className="container px-16 flex gap-5 flex-wrap justify-evenly">
        
         {networkData.map((person, index) => (
           <NetworkCard
