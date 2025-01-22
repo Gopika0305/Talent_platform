@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Main from './pages/Main'
@@ -14,7 +14,10 @@ const Notifications = React.lazy(() => import('./pages/Notifications'));
 
 
 const App = () => {
-  let location = true;
+  let location = window.location;
+  useEffect(() => {
+    location = window.location;
+  }, [location])
   return (
     <>
       <Router>
