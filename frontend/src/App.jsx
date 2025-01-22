@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Main from './pages/Main'
 import Layout from './wrappers/Layout';
 import Profile from "./pages/Profile";
+import Animation from './components/Animation';
 
 const Login = React.lazy(() => import('./pages/Login'));
 const Register = React.lazy(() => import('./pages/Register'));
@@ -21,7 +22,7 @@ const App = () => {
         <div>
           {/* Navbar Component */}
          { location.pathname !== '/profile' && <Navbar />}
-
+          
           
           <Layout>
           {/* Routing between pages */}
