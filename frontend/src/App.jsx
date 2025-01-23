@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Main from './pages/Main'
@@ -14,35 +14,31 @@ const Notifications = React.lazy(() => import('./pages/Notifications'));
 
 
 const App = () => {
-  let location = window.location;
-  useEffect(() => {
-    location = window.location;
-  }, [location])
+
+  const location = useLocation();
+
   return (
     <>
-      <Router>
         <div>
           {/* Navbar Component */}
-         { location.pathname !== '/profile' && <Navbar />}
-          
-          
+          {location.pathname !== '/profile' && <Navbar />}
+
           <Layout>
-          {/* Routing between pages */}
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/login" element={<Suspense><Login /></Suspense>} />
-            <Route path="/register" element={<Suspense><Register/></Suspense>}/>
-            <Route path="/findtalent" element={<Suspense ><Findtalent /></Suspense>} />
-            <Route path="/jobs" element={<Suspense ><Jobs /></Suspense>} />
-            <Route path="/network" element={<Suspense ><Network /></Suspense>} />
-            <Route path="/notifications" element={<Suspense ><Notifications /></Suspense>} />
-            <Route path="/profile" element={<Suspense><Profile/></Suspense>} />
-            <Route path="*" element={<h1>Not Found</h1>} />
-          </Routes>
+            {/* Routing between pages */}
+            <Routes>
+              <Route path="/" element={<Main />} />
+              <Route path="/login" element={<Suspense><Login /></Suspense>} />
+              <Route path="/register" element={<Suspense><Register/></Suspense>}/>
+              <Route path="/findtalent" element={<Suspense ><Findtalent /></Suspense>} />
+              <Route path="/jobs" element={<Suspense ><Jobs /></Suspense>} />
+              <Route path="/network" element={<Suspense ><Network /></Suspense>} />
+              <Route path="/notifications" element={<Suspense ><Notifications /></Suspense>} />
+              <Route path="/profile" element={<Suspense><Profile/></Suspense>} />
+              <Route path="*" element={<h1>Not Found</h1>} />
+            </Routes>
           </Layout>
-          
         </div>
-      </Router>
+    
     </>
   )
 }
