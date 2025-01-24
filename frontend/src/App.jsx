@@ -21,7 +21,7 @@ const App = () => {
     <>
         <div>
           {/* Navbar Component */}
-          {location.pathname !== '/profile' && <Navbar />}
+          {location.pathname !== '/profile' && <Navbar/>}
 
           <Layout>
             {/* Routing between pages */}
