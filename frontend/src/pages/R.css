@@ -1,0 +1,154 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url("https://oreed.org/cdn/1619638329_6089b83993722/1684839216_646c9b3005ac6/1686037233_647ee2f15ed5c/1686037233_647ee2f15e870.png") no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .signup-container {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .signup-box {
+    width: 90%;
+    max-width: 1000px; /* Increased for better spacing */
+    height: 80%; /* Adjusted height for additional content */
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .or-divider {
+    text-align: center;
+    font-size: 14px;
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: white;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .google-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .google-icon {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  
+  .left-half {
+    flex: 1;
+    background: url("https://oreed.org/cdn/1619638329_6089b83993722/1684839216_646c9b3005ac6/1686037233_647ee2f15ed5c/1686037233_647ee2f15e870.png") no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+  }
+  
+  .left-half h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  
+  .left-half p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .right-half {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .signup-form h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .signup-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .signup-button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+  .signup-button:hover {
+    background-color: #0056b3;
+  }
+  .input-group {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .input-group .icon {
+    position: absolute;
+    left: 10px;
+    color: #007BFF;
+    font-size: 18px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px 10px 10px 40px; /* Adjust padding for icon space */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  
+  
+  
+  .google-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .google-icon {
+    font-size: 20px;
+    margin-right: 10px;
+  }
